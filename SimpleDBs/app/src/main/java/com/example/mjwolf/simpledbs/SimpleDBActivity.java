@@ -40,14 +40,14 @@ public class SimpleDBActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Button btn_remove = (Button)findViewById(R.id.BTN_REMOVE);
+        /*Button btn_remove = (Button)findViewById(R.id.BTN_REMOVE);
         btn_remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SimpleDBActivity.this, DataBaseListActivity.class);
-                startActivity(intent);
+               // Intent intent = new Intent(SimpleDBActivity.this, DataBaseListActivity.class);
+               // startActivity(intent);
             }
-        });
+        });*/
     }
 
     public void addUser(View view){
@@ -78,14 +78,34 @@ public class SimpleDBActivity extends AppCompatActivity {
     }
 
     public void deleteContact(View view){
-        //TODO: Implement this. Only delete if the email address matches
+        EditText nameText = (EditText) findViewById(R.id.name);
+        EditText emailText = (EditText) findViewById(R.id.email);
 
+        if (activeID > -1) {
+            findContact(emailText.getText().toString());
+            db.open();
+            db.deleteContact(activeID);
+            db.close();
+        }
+
+        nameText.setText("");
+        emailText.setText("");
+
+        activeID = -1;
     }
 
     private void findContact(String email){
-        //TODO: This method sets the activeID to the DB ID of the person containing the given email address
-        //      It sets the activeID to -1 otherwise
-
+        activeID = -1;
+        db.open();
+        Cursor c = db.getAllContacts();
+        if (c.moveToFirst()) {
+            do {
+                if (c.getString(2).equals(email)){
+                    activeID = Integer.parseInt(c.getString(0));
+                }
+            } while (c.moveToNext());
+        }
+        db.close();
     }
 
     private void DisplayContact(Cursor c) {

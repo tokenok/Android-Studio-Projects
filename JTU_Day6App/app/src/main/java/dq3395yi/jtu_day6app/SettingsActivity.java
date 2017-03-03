@@ -42,6 +42,5 @@ public class SettingsActivity extends AppCompatActivity {
 
         settings.setAOn(switchA.isChecked());
         settings.setBOn(switchB.isChecked());
-
     }
 }

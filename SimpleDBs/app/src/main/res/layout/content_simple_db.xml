@@ -59,6 +59,7 @@
         android:layout_height="wrap_content"
         android:text="@string/delete_from_database"
         android:id="@+id/BTN_REMOVE"
+        android:onClick="deleteContact"
         android:layout_below="@id/add2DB"/>
 
 </RelativeLayout>

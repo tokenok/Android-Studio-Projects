@@ -65,7 +65,6 @@ public class DataBaseListActivity extends AppCompatActivity {
         lv_database.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView parentView, View childView, int position, long id) {
                 lv_database.removeViewAt(position);
-                lv_database.getAdapter().
             }
             public void onNothingSelected(AdapterView parentView) {  }
         });
