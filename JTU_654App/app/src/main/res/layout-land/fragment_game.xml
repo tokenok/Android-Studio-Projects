@@ -1,0 +1,133 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dq3395yi.jtu_654app.GameFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:id="@+id/TV_SCORE"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="end"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:id="@+id/TV_HIGH_SCORE"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/held_dice"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/held1" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/held2" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/held3" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/held4" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/held5" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/rolled_dice_tap_a_die_to_hold_it"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/roll1" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/roll2" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/roll3" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/roll4" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@android:drawable/list_selector_background"
+                android:id="@+id/roll5" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BTN_ROLL"
+            android:text="@string/roll"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/BTN_SUBMIT_SCORE"
+            android:text="@string/end_turn"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</FrameLayout>

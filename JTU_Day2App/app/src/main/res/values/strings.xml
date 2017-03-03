@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JTU_Day2App</string>
+    <string name="intro_text">this is a string resource</string>
+    <string name="btn_text">press for candy</string>
+</resources>

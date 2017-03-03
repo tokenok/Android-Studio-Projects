@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JTU_Day4App</string>
+    <string name="btn_hide_text">Hide</string>
+    <string name="btn_guess_text">Guess</string>
+</resources>

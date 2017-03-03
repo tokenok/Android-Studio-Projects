@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <fragment
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:name="dq3395yi.jtu_654app.PlayerListFragment"
+            android:id="@+id/fragment3"
+            tools:layout="@layout/fragment_player_list" />
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="dq3395yi.jtu_654app.GameFragment"
+            android:id="@+id/fragment4"
+            tools:layout="@layout/fragment_game" />
+    </LinearLayout>
+</LinearLayout>

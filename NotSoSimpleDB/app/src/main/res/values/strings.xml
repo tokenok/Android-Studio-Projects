@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NotSoSimpleDB</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Database Actions happening soon!</string>
+    <string name="addUserButton">Add to Database</string>
+    <string name="showDbButton">Update Database Contents</string>
+    <string name="deleteButtonText">Delete Selected Entry</string>
+    <string name="title_activity_show_them">ShowThem</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_show_list">ShowList</string>
+
+</resources>

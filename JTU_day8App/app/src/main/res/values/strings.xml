@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">JTU_day8App</string>
+    <string name="enter_number_of_miles">Enter number of miles:</string>
+    <string name="buy_the_pizza">Buy the Pizza</string>
+
+    <string-array name="toppings">
+        <item>Mushrooms,v</item>
+        <item>Tomatoes,v</item>
+        <item>Black Olives,v</item>
+        <item>Squash,v</item>
+        <item>Pepperoni,m</item>
+        <item>Sausage,m</item>
+        <item>Ham,m</item>
+        <item>Duck,m</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

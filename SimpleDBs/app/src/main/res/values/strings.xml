@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SimpleDBs</string>
+    <string name="action_settings">Settings</string>
+    <string name="addUserButton">Add to Database</string>
+    <string name="showDbButton">Show Database Contents</string>
+    <string name="deleteButtonText">Delete Selected Entry</string>
+    <string name="title_activity_show_them">ShowThem</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_from_database">Delete from Database</string>
+
+</resources>

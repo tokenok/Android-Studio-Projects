@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_simple_db"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.mjwolf.simpledbs.SimpleDBActivity"
+    tools:showIn="@layout/activity_simple_db">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:id="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="email"
+        android:ems="10"
+        android:id="@+id/email"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addUserButton"
+        android:id="@+id/add2DB"
+        android:onClick="addUser"
+        android:layout_below="@+id/email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/showDbButton"
+        android:id="@+id/showAll"
+        android:onClick="showAll"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_from_database"
+        android:id="@+id/BTN_REMOVE"
+        android:layout_below="@id/add2DB"/>
+
+</RelativeLayout>

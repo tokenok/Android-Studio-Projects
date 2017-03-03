@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dq3395yi.jtu_day6app.SettingsActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meats_background" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SPN_MEATS_COLORS" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/veggies_background" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SPN_VEGGY_COLORS"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="@string/done"
+        android:id="@+id/BTN_DONE"/>
+
+</LinearLayout>
