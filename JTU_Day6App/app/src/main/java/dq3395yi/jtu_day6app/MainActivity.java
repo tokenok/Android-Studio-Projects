@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(LOG_TAG, "onCreate()");
 
-        Settings settings = ( (App) getApplication()).getSettings();
-
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

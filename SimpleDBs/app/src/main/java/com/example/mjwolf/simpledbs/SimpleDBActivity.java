@@ -81,8 +81,9 @@ public class SimpleDBActivity extends AppCompatActivity {
         EditText nameText = (EditText) findViewById(R.id.name);
         EditText emailText = (EditText) findViewById(R.id.email);
 
+        findContact(emailText.getText().toString());
+
         if (activeID > -1) {
-            findContact(emailText.getText().toString());
             db.open();
             db.deleteContact(activeID);
             db.close();
