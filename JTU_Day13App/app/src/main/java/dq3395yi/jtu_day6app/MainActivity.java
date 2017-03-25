@@ -1,11 +1,15 @@
 package dq3395yi.jtu_day6app;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -49,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     protected Button btn_purchase;
 
     protected Drawable rbtnCol;
+
+    private static int notificationID = 1;
 
     final double meatCost10 = 1.5;
     final double meatCost13 = 2.0;
@@ -182,7 +188,51 @@ public class MainActivity extends AppCompatActivity {
                 double totalCost = calcPrice();
                 s.append( "\nTotal Cost: $" + String.format("%.2f", totalCost));
 
-                Toast.makeText(getApplicationContext(), s.toString(), Toast.LENGTH_LONG).show();
+                final String pizzainfo = s.toString();
+
+                new Thread(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+                                intent.putExtra("notificationID", notificationID);
+                                intent.putExtra("pizzainfo", pizzainfo.toString());
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+
+                                final NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this);
+
+                                builder.setSmallIcon(R.mipmap.ic_launcher)
+                                        .setContentTitle("Pizza order placed")
+                                        .setWhen(System.currentTimeMillis());
+
+                                final NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+                                final int time = 5;
+
+                                int incr;
+                                for (incr = 0; incr < time; incr++) {
+                                    builder.setProgress(time, incr, false);
+                                    builder.setContentText("Pizza will be out of the oven in " + (time - incr) + " seconds");
+
+                                    nm.notify(notificationID, builder.build());
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        Log.d("TAG", "sleep failure");
+                                    }
+                                }
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                                builder.setContentIntent(pendingIntent);
+                                builder.setContentTitle("Pizza done!")
+                                        .setContentText("Pizza is now being delivered")
+                                        .setProgress(0, 0, false);
+
+                                nm.notify(notificationID, builder.build());
+                            }
+                        }
+                ).start();
+           //    Toast.makeText(getApplicationContext(), s.toString(), Toast.LENGTH_LONG).show();
             }
         });
 
