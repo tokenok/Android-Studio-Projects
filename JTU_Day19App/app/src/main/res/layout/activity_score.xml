@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dq3395yi.jtu_day19app.ScoreActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/TV_SCORE"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:text="" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/play_again"
+        android:id="@+id/BTN_PLAY_AGAIN"/>
+</LinearLayout>

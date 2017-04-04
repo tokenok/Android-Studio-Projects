@@ -37,8 +37,8 @@ public class MainActivityFragment extends Fragment {
             name = args.getString("NAME");
             email = args.getString("EMAIL");
         }
-
     }
+
     @Override
     public void onResume(){
         super.onResume();

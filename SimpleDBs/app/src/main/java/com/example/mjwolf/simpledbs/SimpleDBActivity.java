@@ -63,7 +63,7 @@ public class SimpleDBActivity extends AppCompatActivity {
         //do some sanitizing and error checking before actually adding anything to a DB
         db.open();
 
-        long id = db.insertContact(name,email);
+        long id = db.insertContact(name, email);
         db.close();
 
         Toast.makeText(this,name + " added with id " + id, Toast.LENGTH_SHORT).show();
