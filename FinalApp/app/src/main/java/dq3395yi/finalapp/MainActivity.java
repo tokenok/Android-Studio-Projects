@@ -14,11 +14,15 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     SightingView sightingView;
+
+    public File cacheDir;
 
     private ScaleGestureDetector mScaleDetector;
 
@@ -32,6 +36,47 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mScaleDetector = new ScaleGestureDetector(this, new ScaleListener());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if(android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
+            cacheDir = new File(android.os.Environment.getExternalStorageDirectory(),"MyCustomObject");
+        else
+            cacheDir = getCacheDir();
+        if(!cacheDir.exists())
+            cacheDir.mkdirs();
+
+        DeerData m = new DeerData(cacheDir);
+        boolean result = m.saveObject(m);
+
+        if(result)
+            Toast.makeText(this, "Saved object", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Error saving object", Toast.LENGTH_LONG).show();
+
+        DeerData c = m.getObject(this);
+
+        if(c!= null)
+            Toast.makeText(this, "Retrieved object", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Error retrieving object", Toast.LENGTH_LONG).show();
+
+
+
+
+
+
     }
 
     public void addSighting(View view) {
