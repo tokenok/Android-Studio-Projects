@@ -2,9 +2,9 @@ package dq3395yi.finalapp;
 
 import android.content.Context;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -14,59 +14,100 @@ import java.io.Serializable;
  */
 
 public class DeerData implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private int numDeer;
+    private String timeOfSighting;
+    private double distance;
 
-    File cacheDir;
+    public static final int DOE = 1, BUCK = 2, FAWN = 3, UNKNOWN = 0, ANTLERLESS = 4;
+    private int deerTypes;
 
-    public DeerData(File cacheDir) {
-        this.cacheDir = cacheDir;
+    private int numPoints;
+    private double buckSize;
+    private double buckAge;
+
+    public int getNumDeer() {
+        return numDeer;
     }
 
-    public boolean saveObject(DeerData obj) {
-        final File suspend_f = new File(cacheDir, "test");
-
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        boolean keep = true;
-
-        try {
-            fos = new FileOutputStream(suspend_f);
-            oos = new ObjectOutputStream(fos);
-            oos.writeObject(obj);
-        } catch (Exception e) {
-            keep = false;
-        } finally {
-            try {
-                if (oos != null) oos.close();
-                if (fos != null) fos.close();
-                if (keep == false) suspend_f.delete();
-            } catch (Exception e) { /* do nothing */ }
-        }
-
-        return keep;
+    public String getTimeOfSighting() {
+        return timeOfSighting;
     }
 
-    public DeerData getObject(Context c) {
-        final File suspend_f = new File(cacheDir, "test");
+    public double getDistance() {
+        return distance;
+    }
 
-        DeerData simpleClass = null;
-        FileInputStream fis = null;
-        ObjectInputStream is = null;
+    public int getDeerTypes() {
+        return deerTypes;
+    }
 
+    public int getNumPoints() {
+        return numPoints;
+    }
+
+    public double getBuckSize() {
+        return buckSize;
+    }
+
+    public double getBuckAge() {
+        return buckAge;
+    }
+
+    public void setNumDeer(int numDeer) {
+        this.numDeer = numDeer;
+    }
+
+    public void setTimeOfSighting(String timeOfSighting) {
+        this.timeOfSighting = timeOfSighting;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public void setDeerTypes(int deerTypes) {
+        this.deerTypes = deerTypes;
+    }
+
+    public void setNumPoints(int numPoints) {
+        this.numPoints = numPoints;
+    }
+
+    public void setBuckSize(double buckSize) {
+        this.buckSize = buckSize;
+    }
+
+    public void setBuckAge(double buckAge) {
+        this.buckAge = buckAge;
+    }
+
+    public DeerData() {  }
+
+    public boolean saveToFile(Context context, String fileName) {
         try {
-            fis = new FileInputStream(suspend_f);
-            is = new ObjectInputStream(fis);
-            simpleClass = (DeerData) is.readObject();
-        } catch (Exception e) {
-            String val = e.getMessage();
-        } finally {
-            try {
-                if (fis != null) fis.close();
-                if (is != null) is.close();
-            } catch (Exception e) {
-            }
+            FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(this);
+            objectOutputStream.close();
+            fileOutputStream.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
+    }
 
-        return simpleClass;
+    public static DeerData readFromFile(Context context, String fileName) {
+        DeerData deerData = null;
+        try {
+            FileInputStream fileInputStream = context.openFileInput(fileName);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            deerData = (DeerData) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return deerData;
     }
 }

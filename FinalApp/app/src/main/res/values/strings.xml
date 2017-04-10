@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FinalApp</string>
+    <string name="number_of_deer_sighted">Number of deer sighted:</string>
 </resources>
